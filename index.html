@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Library</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+header {
+    background: #1e293b;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+nav {
+    background: #334155;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav a {
+    color: white;
+    padding: 12px 18px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background: #1e293b;
+}
+
+section {
+    background: white;
+    margin: 15px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+h2 {
+    color: #1e293b;
+}
+
+ul {
+    line-height: 1.8;
+}
+
+/* Form */
+form {
+    max-width: 500px;
+    margin: auto;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input, select, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background: #1e293b;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background: #0f172a;
+}
+
+footer {
+    background: #1e293b;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    nav a {
+        flex: 1 1 50%;
+        text-align: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>My Library</h1>
+    <p>Peaceful • Clean • Focused Study Environment</p>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#facilities">Facilities</a>
+    <a href="#sections">Sections</a>
+    <a href="#booking">Seat Booking</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+    <h2>About Our Library</h2>
+    <p>
+        Our library provides a silent, disciplined and comfortable environment
+        for students preparing for exams and self-study.
+    </p>
+</section>
+
+<section id="facilities">
+    <h2>Facilities</h2>
+    <ul>
+        <li>📶 High-Speed Wi-Fi</li>
+        <li>💧 RO Purified Drinking Water</li>
+        <li>🔌 Charging Points at Every Seat</li>
+        <li>🔇 Complete Silent Zone</li>
+        <li>❄️ Well-Ventilated Reading Hall</li>
+    </ul>
+</section>
+
+<section id="sections">
+    <h2>Study Sections</h2>
+    <ul>
+        <li>👩 Separate Female Section (Safe & Secure)</li>
+        <li>👨 General Study Section</li>
+        <li>🪑 Individual Comfortable Seating</li>
+    </ul>
+</section>
+
+<section id="booking">
+    <h2>Seat Booking / Registration</h2>
+
+    <form>
+       <form onsubmit="sendWhatsApp(); return false;">
+
+    <label>Full Name</label>
+    <input type="text" id="name" required>
+
+    <label>Mobile Number</label>
+    <input type="tel" id="mobile" required>
+
+    <label>Email (Optional)</label>
+    <input type="email" id="email">
+
+    <label>Select Section</label>
+    <select id="section" required>
+        <option value="">-- Select --</option>
+        <option>Female Section</option>
+        <option>General Section</option>
+    </select>
+
+    <label>Preferred Timing</label>
+    <select id="time" required>
+        <option value="">-- Select --</option>
+        <option>Morning (6 AM – 12 PM)</option>
+        <option>Afternoon (12 PM – 6 PM)</option>
+        <option>Full Day</option>
+    </select>
+
+    <label>Message (Optional)</label>
+    <textarea id="message" rows="4"></textarea>
+
+    <button type="submit">Book Seat via WhatsApp</button>
+</form>
+    </form>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>
+        📍 Location: Your Area Name<br>
+        📞 Phone: +91 7617507885<br>
+        ⏰ Timings: 6:00 AM – 10:00 PM
+    </p>
+</section>
+
+<footer>
+    <p>© 2026 My Library. All Rights Reserved.</p>
+</footer>
+<scrip><script>
+function sendWhatsApp() {
+
+  var name = document.getElementById("name").value;
+  var mobile = document.getElementById("mobile").value;
+  var email = document.getElementById("email").value;
+  var section = document.getElementById("section").value;
+  var time = document.getElementById("time").value;
+  var message = document.getElementById("message").value;
+
+  var whatsappNumber = "917617507885"; // your number only
+
+  var text =
+    "Library Seat Booking\n\n" +
+    "Name: " + name + "\n" +
+    "Mobile: " + mobile + "\n" +
+    "Email: " + email + "\n" +
+    "Section: " + section + "\n" +
+    "Time: " + time + "\n" +
+    "Message: " + message;
+
+  var url =
+    "https://api.whatsapp.com/send?phone=" +
+    whatsappNumber +
+    "&text=" +
+    encodeURIComponent(text);
+
+  window.open(url, "_blank");
+}
+</script></script>
+
+</body>
+</html>
